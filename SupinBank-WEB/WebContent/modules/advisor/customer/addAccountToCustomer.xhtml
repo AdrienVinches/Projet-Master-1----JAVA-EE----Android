@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="https://ajax4jsf.dev.java.net/ajax"
+	xmlns:c="http://java.sun.com/jstl/core"> 
+	<ui:composition template="/templates/default/defaultAdvisor.xhtml">
+	<ui:define name="head">
+
+<link rel="stylesheet" type="text/css"
+	href="http://localhost:8080/SupinBank-WEB/r/css/bootstrap.css" />
+<link rel="stylesheet" type="text/css"
+	href="http://localhost:8080/SupinBank-WEB/r/css/bootstrap-responsive.css" />
+<script type="text/javascript" src="http://localhost:8080/SupinBank-WEB/r/js/bootstrap.js" />	</ui:define>
+	<ui:define name="content">
+
+<a4j:keepAlive beanName="customerAccount" />
+<a4j:keepAlive beanName="addAccountToCustomer" />
+
+
+<h:form>
+<div class="container" style="margin-top:45px;">
+<h2>Add Account to Customer  </h2>
+<hr />
+<br />
+<p>Customer : #{addAccountToCustomer.customer.firstName} #{addAccountToCustomer.customer.lastName}</p>
+<hr />
+
+	<div class="addCustomerFormWidth">
+		<div class="floatL200px">
+			<p>Name</p>
+		</div>
+		<div class="floatR200px">
+			<h:inputText value="#{addAccountToCustomer.account.name}" />
+		</div>
+	</div>
+	
+	<div class="addCustomerFormWidth">
+		<div class="floatL200px">
+			<p>Interest plan</p>
+		</div>
+		<div class="floatR200px">
+			<h:selectOneMenu value="#{addAccountToCustomer.account.accountTransfertEnums}" >
+				<f:selectItems
+					value="#{addAccountToCustomer.listSelectItemAccountTransfert}"></f:selectItems>
+				
+			</h:selectOneMenu>
+		</div>
+	</div>
+	
+
+	
+	</div> 
+
+	<div class="container" style="height: 50px;padding-top: 20px;background:#f6f7f8;border-top:1px solid #dedede;">
+	<h:commandButton action="#{addAccountToCustomer.addAccountCustomer}" value="add Account"  style="margin-left:210px;margin-right:5px;" />
+	<h:commandButton action="listCustomer" value="Cancel" style="background: white;"  />
+	</div>
+
+</h:form>
+
+</ui:define></ui:composition>
+</html>

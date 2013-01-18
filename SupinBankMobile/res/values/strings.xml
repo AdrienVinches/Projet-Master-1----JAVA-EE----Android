@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello World, SupinBankMobile!</string>
+    <string name="app_name">SupinBankMobile</string>
+    <string name="wsdl">http://192.168.42.60:8080/SupinBank-SupinBank-EJB/SupinBankWebServicesBean?wsdl
+	</string>
+	<string name="wsdlnamespace">http://webservices.supinbank.com/
+	</string>
+      <string name="email_test">viinchou@gmail.com</string>
+    <string name="password_test">5ff60f6c99b1ee95581a4824c758255d</string>
+     <string name="login_text">Please connect with your email address and your password to get your account(s) state
+    </string>
+      <string name="page_identification">Identification</string>
+          <string name="login">Login</string>
+</resources>

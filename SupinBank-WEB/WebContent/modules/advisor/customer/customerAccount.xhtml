@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="https://ajax4jsf.dev.java.net/ajax"
+	xmlns:c="http://java.sun.com/jstl/core"> 
+	<ui:composition template="/templates/default/defaultAdvisor.xhtml">
+	<ui:define name="head">
+
+
+<link rel="stylesheet" type="text/css"
+	href="http://localhost:8080/SupinBank-WEB/r/css/bootstrap.css" />
+<link rel="stylesheet" type="text/css"
+	href="http://localhost:8080/SupinBank-WEB/r/css/bootstrap-responsive.css" />
+<script type="text/javascript" src="http://localhost:8080/SupinBank-WEB/r/js/bootstrap.js" />
+	</ui:define>
+	<ui:define name="content">
+
+<a4j:keepAlive beanName="listCustomer" />
+<a4j:keepAlive beanName="customerAccount" />
+
+<div class="container" style="margin-top:45px;">
+<h2>#{customerAccount.customer.firstName} #{customerAccount.customer.lastName} accounts</h2>
+<hr />
+<br />
+<p>Email : #{customerAccount.customer.email}</p>
+
+<h:form >
+<h:commandButton action="#{customerAccount.addAcount}" value="Add account" styleClass="floatR" />
+</h:form>
+
+<rich:dataTable value="#{customerAccount.modelAccount}" var="account"
+	width="100%" rows="15">
+	<f:facet name="header">
+		<rich:columnGroup>
+			<rich:column>
+				<h:outputText value="Id" />
+			</rich:column>
+			<rich:column>
+				<h:outputText value="Name" />
+			</rich:column>
+			<rich:column>
+				<h:outputText value="Balance" />
+			</rich:column>
+			<rich:column>
+				<h:outputText value="Interest plan" />
+			</rich:column>
+			<rich:column>
+			</rich:column>
+		</rich:columnGroup>
+	</f:facet>
+
+	<rich:column>
+		<h:outputText value="#{account.id}" />
+	</rich:column>
+	<rich:column>
+		<h:outputText value="#{account.name}" />
+	</rich:column>
+	<rich:column>
+		<h:outputText value="#{account.amount}" />
+	</rich:column>
+	<rich:column>
+		<h:outputText value="#{account.accountTransfertEnums}" />
+	</rich:column>
+	<rich:column>
+	<h:form style="margin-bottom:0px;">
+		<h:commandLink action="#{customerAccount.addMoneyToAccount}" value="Add Money" style="font-weight:bold;"/>
+	</h:form>
+	</rich:column>
+
+</rich:dataTable>
+
+</div>
+</ui:define></ui:composition>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="https://ajax4jsf.dev.java.net/ajax"
+	xmlns:c="http://java.sun.com/jstl/core">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title></title>
+<link rel="stylesheet" media="screen"
+	href="#{webGlobal.URL_template_resource}/css/style.css" />
+<link rel="stylesheet" media="screen"
+	href="#{webGlobal.url_resource}/default/css/style.css" />
+<script type="text/javascript"
+	src="#{webGlobal.url_resource}/default/js/jquery/jquery-1.4.2.min.js" />
+<script type="text/javascript"
+	src="#{webGlobal.url_resource}/default/js/core.js" />
+<script type="text/javascript"
+	src="#{webGlobal.url_resource}/default/js/hack-css-3.js" />
+<script type="text/javascript"
+	src="#{webGlobal.url_resource}/default/js/form.js" />
+<script type="text/javascript"
+	src="#{webGlobal.url_resource}/default/js/graphic-effect.js" />
+<script type="text/javascript"
+	src="#{webGlobal.url_resource}/default/js/main.js" />
+<ui:insert name="head"></ui:insert>
+</head>
+<body>
+
+<div id="wrapper">
+<div id="header"> 
+<h1 id="logo"><a href="#{facesContext.externalContext.requestContextPath}/#" title="Revenir à la page d'accueil">PartyPro</a></h1>
+<div id="logout"><h:form><h:commandLink action="#{auth.submitLogOut}"  title="Déconnexion" value="Déconnexion" /></h:form></div>
+<div id="header-bar">Signed as <a href="#" title="Voir mon profil">#{sessionUser.account.oneEmployee.firstName}
+#{sessionUser.account.oneEmployee.name}</a></div>
+</div>
+<div id="container">
+<div id="left">
+<ui:repeat value="#{menuManager.sidebarLeft.listMenuItem}" var="menuItem">
+<div class="bloc-mini boxMenu">
+<h2><h:outputLink value="#{webGlobal.url_host}#{menuItem.url}" 
+						rendered="#{menuItem.oneTypeLink == 'relative'}"
+						class="titleBox">#{menuItem.name}</h:outputLink>
+				<h:outputLink value="#{menuItem.url}" 
+						rendered="#{menuItem.oneTypeLink != 'relative'}"
+						class="titleBox">(#{menuItem.name}</h:outputLink>
+<a href="#" title="réduire" class="uiBttReduce collapse">Collapse</a></h2>
+<div class="bloc-in">
+<ul>
+<ui:repeat value="#{menuItem.listChildren}" var="children">
+	<li style="list-style-image: url('#{webGlobal.url_resource}#{children.urlMenuIcon}');"><h:outputLink value="#{webGlobal.url_host}#{children.url}" 
+								rendered="#{children.oneTypeLink == 'relative' and children.url == webGlobal.url_current}"
+								class="titleBox currentSubMenu">#{children.name}</h:outputLink>
+						<h:outputLink value="#{webGlobal.url_host}#{children.url}" 
+								rendered="#{children.oneTypeLink == 'relative' and children.url != webGlobal.url_current}"
+								class="titleBox">#{children.name}</h:outputLink>
+								
+						<h:outputLink value="#{children.url}" 
+								rendered="#{children.oneTypeLink != 'relative'}"
+								class="titleBox">#{children.name}</h:outputLink></li>
+</ui:repeat>
+	
+</ul>
+</div>
+</div>
+</ui:repeat>
+</div>
+<div id="center"><f:view>
+	<ui:insert name="content" />
+</f:view>
+</div>
+<div id="footer">
+<ul id="menu-footer">
+	<li><a href="#" title="">DifarBoard</a></li>
+	<li><a href="#" title="">DifarStats</a></li>
+	<li><a href="#" title="">DifarFet</a></li>
+	<li><a href="#" title="">DifarBox</a></li>
+	<li><a href="#" title="">Configuration</a></li>
+	<li><a href="#" title="" class="last">Contact</a></li>
+</ul>
+<p>DIF-AR-FET &copy; 2011 Tous droits réservés</p>
+</div>
+</div>
+</div>
+<!--[if lt IE 7]>
+<script type="text/javascript" src="js/DD_belatedPNG_0.0.8a-min.js"></script>
+<script type="text/javascript">
+    DD_belatedPNG.fix("*");
+</script>
+<![endif]-->
+
+</body>
+</html>

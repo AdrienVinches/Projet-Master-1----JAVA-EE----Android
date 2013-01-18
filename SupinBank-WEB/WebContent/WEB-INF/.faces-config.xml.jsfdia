@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:*" PATH="*" SHAPE="32,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:*:0" NAME="item" PATH="*" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="welcome_page_customer::#modules#customer#account#listAccount.xhtml"
+    NAME="output" PATH="/modules/customer/account/listAccount.xhtml"
+    TARGET="rules:#modules#customer#account#listAccount.xhtml"
+    TITLE="welcome_page_customer" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="welcome_page_Advisor::#modules#advisor#customer#main.xhtml"
+    NAME="output1" PATH="/modules/advisor/customer/main.xhtml"
+    TARGET="rules:#modules#advisor#customer#main.xhtml"
+    TITLE="welcome_page_Advisor" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="advisorAddCustomer::#modules#advisor#customer#addCustomer.xhtml"
+    NAME="output2" PATH="/modules/advisor/customer/addCustomer.xhtml"
+    TARGET="rules:#modules#advisor#customer#addCustomer.xhtml"
+    TITLE="advisorAddCustomer" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="addAccount::#modules#advisor#customer#addAccount.xhtml"
+    NAME="output3" PATH="/modules/advisor/customer/addAccount.xhtml"
+    TARGET="rules:#modules#advisor#customer#addAccount.xhtml"
+    TITLE="addAccount" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="listCustomer::#modules#advisor#customer#listCustomer.xhtml"
+    NAME="output4" PATH="/modules/advisor/customer/listCustomer.xhtml"
+    TARGET="rules:#modules#advisor#customer#listCustomer.xhtml"
+    TITLE="listCustomer" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="customerAccount::#modules#advisor#customer#customerAccount.xhtml"
+    NAME="output5"
+    PATH="/modules/advisor/customer/customerAccount.xhtml"
+    TARGET="rules:#modules#advisor#customer#customerAccount.xhtml"
+    TITLE="customerAccount" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="addAccountToCustomer::#modules#advisor#customer#addAccountToCustomer.xhtml"
+    NAME="output6"
+    PATH="/modules/advisor/customer/addAccountToCustomer.xhtml"
+    TARGET="rules:#modules#advisor#customer#addAccountToCustomer.xhtml"
+    TITLE="addAccountToCustomer" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="addMoneyToAccount::#modules#advisor#customer#addMoneyToAccount.xhtml"
+    NAME="output7"
+    PATH="/modules/advisor/customer/addMoneyToAccount.xhtml"
+    TARGET="rules:#modules#advisor#customer#addMoneyToAccount.xhtml"
+    TITLE="addMoneyToAccount" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="operation::#modules#customer#account#operation.xhtml"
+    NAME="output8" PATH="/modules/customer/account/operation.xhtml"
+    TARGET="rules:#modules#customer#account#operation.xhtml"
+    TITLE="operation" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="performTransfert::#modules#customer#account#performTransfert.xhtml"
+    NAME="output9"
+    PATH="/modules/customer/account/performTransfert.xhtml"
+    TARGET="rules:#modules#customer#account#performTransfert.xhtml"
+    TITLE="performTransfert" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="main::#auth#main.xhtml" NAME="output10"
+    PATH="/auth/main.xhtml" TARGET="rules:#auth#main.xhtml" TITLE="main" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#modules#customer#account#listAccount.xhtml"
+  PATH="/modules/customer/account/listAccount.xhtml" SHAPE="240,33,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#modules#advisor#customer#main.xhtml"
+  PATH="/modules/advisor/customer/main.xhtml" SHAPE="256,177,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#modules#advisor#customer#addCustomer.xhtml"
+  PATH="/modules/advisor/customer/addCustomer.xhtml" SHAPE="272,321,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#modules#advisor#customer#addAccount.xhtml"
+  PATH="/modules/advisor/customer/addAccount.xhtml" SHAPE="288,465,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#modules#advisor#customer#listCustomer.xhtml"
+  PATH="/modules/advisor/customer/listCustomer.xhtml"
+  SHAPE="304,497,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#modules#advisor#customer#customerAccount.xhtml"
+  PATH="/modules/advisor/customer/customerAccount.xhtml"
+  SHAPE="304,529,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#modules#advisor#customer#addAccountToCustomer.xhtml"
+  PATH="/modules/advisor/customer/addAccountToCustomer.xhtml"
+  SHAPE="304,561,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#modules#advisor#customer#addMoneyToAccount.xhtml"
+  PATH="/modules/advisor/customer/addMoneyToAccount.xhtml"
+  SHAPE="304,593,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#modules#customer#account#operation.xhtml"
+  PATH="/modules/customer/account/operation.xhtml" SHAPE="304,625,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#modules#customer#account#performTransfert.xhtml"
+  PATH="/modules/customer/account/performTransfert.xhtml"
+  SHAPE="304,657,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#auth#main.xhtml" PATH="/auth/main.xhtml"
+  SHAPE="304,689,0,0" model-entity="JSFProcessGroup"/>
+</PROCESS>

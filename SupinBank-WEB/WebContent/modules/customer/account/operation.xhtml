@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="https://ajax4jsf.dev.java.net/ajax"
+	xmlns:c="http://java.sun.com/jstl/core"> 
+	<ui:composition template="/templates/default/defaultCustomer.xhtml">
+	<ui:define name="head">
+	<link rel="stylesheet" type="text/css"
+	href="http://localhost:8080/SupinBank-WEB/r/css/bootstrap.css" />
+<link rel="stylesheet" type="text/css"
+	href="http://localhost:8080/SupinBank-WEB/r/css/bootstrap-responsive.css" />
+<script type="text/javascript" src="http://localhost:8080/SupinBank-WEB/r/js/bootstrap.js" />
+	</ui:define>
+	<ui:define name="content">
+<div class="container" style="margin-top: 45px;">
+<h2>Operations</h2>
+<hr />
+<br />
+<a4j:form>
+<div class="addCustomerFormWidth" style="height:40px;">
+		<div class="floatL200px">
+			<p>Select your account </p>
+		</div>
+		<div class="floatR200px">
+			<h:selectOneMenu value="#{listOperation.account}" converter="convertAccount" >
+				<f:selectItems
+					value="#{listOperation.listSelectItemAccount}"></f:selectItems>
+				<a4j:support event="onchange" action="#{listOperation.fillAccount}"
+							reRender="operationDatatable" />
+			</h:selectOneMenu>
+		</div>
+	</div>
+	
+	<a4j:outputPanel id="operationDatatable">
+	<br />
+	<p>Code BBAN : #{listOperation.account.bBan}</p>
+	<br />
+	
+	<rich:dataTable value="#{listOperation.modelOperation}" var="operation"
+	width="100%" rows="15">
+	<f:facet name="header">
+		<rich:columnGroup>
+			<rich:column>
+				<h:outputText value="Id" />
+			</rich:column>
+			<rich:column>
+				<h:outputText value="Date" />
+			</rich:column>
+			<rich:column>
+				<h:outputText value="Wording" />
+			</rich:column>
+			<rich:column>
+			</rich:column>
+			<rich:column>
+				<h:outputText value="Amount" />
+			</rich:column>
+		</rich:columnGroup>
+	</f:facet>
+
+	<rich:column>
+		<h:outputText value="#{operation.id}" />
+	</rich:column>
+	<rich:column>
+		<h:outputText value="#{operation.date}" ><f:convertDateTime pattern="dd/MM/yyyy" timeZone="Europe/Paris" /></h:outputText>
+	</rich:column>
+	<rich:column>
+		<h:outputText value="#{operation.libelle}" />
+	</rich:column>
+	<rich:column>
+	<h:graphicImage value="/r/img/#{(operation.operationType == 'credit')? 'up.png':'down.png'}" />
+	</rich:column>
+	<rich:column>
+		<h:outputText value="- " rendered="#{operation.operationType == 'debit'}" style="color:red;" /><h:outputText value="#{operation.price}" style="color: #{(operation.operationType == 'credit')? 'green':'red'}"/>
+	</rich:column>
+
+</rich:dataTable>
+	
+	</a4j:outputPanel>
+
+</a4j:form>
+
+</div>
+	</ui:define>
+</ui:composition>
+</html>

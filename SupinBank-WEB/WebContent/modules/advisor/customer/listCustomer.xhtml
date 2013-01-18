@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="https://ajax4jsf.dev.java.net/ajax"
+	xmlns:c="http://java.sun.com/jstl/core"> 
+	<ui:composition template="/templates/default/defaultAdvisor.xhtml">
+	<ui:define name="head">
+	<link rel="stylesheet" type="text/css"
+	href="http://localhost:8080/SupinBank-WEB/r/css/bootstrap.css" />
+<link rel="stylesheet" type="text/css"
+	href="http://localhost:8080/SupinBank-WEB/r/css/bootstrap-responsive.css" />
+<script type="text/javascript" src="http://localhost:8080/SupinBank-WEB/r/js/bootstrap.js" />
+	</ui:define>
+	<ui:define name="content">
+
+<div style="margin-top: 50px" class="container">
+<h2>Customer list</h2>
+<hr />
+
+<rich:dataTable value="#{listCustomer.modelListCustomer}" var="customer"
+	width="100%" rows="15">
+	<f:facet name="header">
+		<rich:columnGroup>
+			<rich:column>
+				<h:outputText value="Name" />
+			</rich:column>
+			<rich:column>
+				<h:outputText value="Email" />
+			</rich:column>
+			<rich:column>
+				
+			</rich:column>
+		</rich:columnGroup>
+	</f:facet>
+
+	<rich:column>
+		<h:outputText value="#{customer.lastName}  #{customer.firstName}" />
+	</rich:column>
+	<rich:column>
+		<h:outputText value="#{customer.email}" />
+	</rich:column>
+	<rich:column>
+	<h:form style="margin-bottom:0px;">
+	<h:commandLink action="#{listCustomer.customerDetails}" value="Details" style="font-weight: bold;"/>
+</h:form>		
+	</rich:column>
+
+</rich:dataTable>
+
+</div>
+</ui:define></ui:composition></html>

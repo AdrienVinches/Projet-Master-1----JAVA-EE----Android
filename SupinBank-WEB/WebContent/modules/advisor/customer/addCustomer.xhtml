@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="https://ajax4jsf.dev.java.net/ajax"
+	xmlns:c="http://java.sun.com/jstl/core"> 
+	<ui:composition template="/templates/default/defaultAdvisor.xhtml">
+	<ui:define name="head">
+
+<link rel="stylesheet" type="text/css"
+	href="http://localhost:8080/SupinBank-WEB/r/css/bootstrap.css" />
+<link rel="stylesheet" type="text/css"
+	href="http://localhost:8080/SupinBank-WEB/r/css/bootstrap-responsive.css" />
+<script type="text/javascript" src="http://localhost:8080/SupinBank-WEB/r/js/bootstrap.js" />
+	</ui:define>
+	<ui:define name="content">
+
+
+<h:form>
+<div class="container" style="margin-top:45px;">
+
+<h2>Add Customer</h2>
+<hr />
+<div>
+	<div class="addCustomerFormWidth">
+		<div class="floatL200px">
+			<p>FirstName</p>
+		</div>
+		<div class="floatR200px">
+			<h:inputText value="#{addCustomer.customer.firstName}" id="firstName" required="true" requiredMessage="first name not specified"/>
+		</div>
+		<div style="font-weight: bold; color: red;margin: 5px -410px 10px 0; float: right;">
+				<h:message for="firstName" errorClass="fContainerErrorDetails" />		
+		</div>
+	</div>
+	<div class="addCustomerFormWidth">
+		<div class="floatL200px">
+			<p>LastName</p>
+		</div>
+		<div class="floatR200px">
+			<h:inputText value="#{addCustomer.customer.lastName}"  id="lastName" required="true" requiredMessage="last name not specified"/>
+		</div>
+		<div style="font-weight: bold; color: red;margin: 5px -410px 10px 0; float: right;">
+		<h:message for="lastName" errorClass="fContainerErrorDetails" />	
+		</div>	
+	</div>
+	<div class="addCustomerFormWidth">
+		<div class="floatL200px">
+			<p>Email</p>
+		</div>
+		<div class="floatR200px">
+			<h:inputText value="#{addCustomer.customer.email}"   id="email" required="true" requiredMessage="email not specified"/>
+		</div>
+		<div style="font-weight: bold; color: red;margin: 5px -410px 10px 0; float: right;">
+		<h:message for="email" errorClass="fContainerErrorDetails" />	
+		</div>
+	</div>
+	<div class="addCustomerFormWidth">
+		<div class="floatL200px">
+			<p>Address</p>
+		</div>
+		<div class="floatR200px">
+			<h:inputText value="#{addCustomer.customer.adresse}" id="adresse" required="true" requiredMessage="adresse not specified"/>
+		</div>
+		<div style="font-weight: bold; color: red;margin: 5px -410px 10px 0; float: right;">
+		<h:message for="adresse" errorClass="fContainerErrorDetails" />
+		</div>
+	</div>
+	<div class="addCustomerFormWidth">
+		<div class="floatL200px">
+			<p>Zip Code</p>
+		</div>
+		<div class="floatR200px">
+			<h:inputText value="#{addCustomer.customer.zipCode}"  id="zipCode" required="true" requiredMessage="zipCode not specified" />
+		</div>
+		<div style="font-weight: bold; color: red;margin: 5px -410px 10px 0; float: right;">
+		<h:message for="zipCode" errorClass="fContainerErrorDetails" />
+		</div>
+	</div>
+	<div class="addCustomerFormWidth">
+		<div class="floatL200px">
+			<p>City</p>
+		</div>
+		<div class="floatR200px">
+			<h:inputText value="#{addCustomer.customer.city}"  id="city" required="true" requiredMessage="city not specified" />
+		</div>
+		<div style="font-weight: bold; color: red;margin: 5px -410px 10px 0; float: right;">
+		<h:message for="city" errorClass="fContainerErrorDetails" />
+		</div>
+	</div>
+	<div class="addCustomerFormWidth">
+		<div class="floatL200px">
+			<p>Phonne</p>
+		</div>
+		<div class="floatR200px">
+			<h:inputText value="#{addCustomer.customer.mobilePhone}"  id="mobilePhone" required="true" requiredMessage="mobilePhone not specified" />
+		</div>
+		<div style="font-weight: bold; color: red;margin: 5px -410px 10px 0; float: right;">
+		<h:message for="mobilePhone" errorClass="fContainerErrorDetails" />
+		</div>
+	</div>
+</div>
+
+<br />
+</div>
+
+
+<div class="container" style="height: 50px;padding-top: 20px;background:#f6f7f8;border-top:1px solid #dedede;  ">
+	<h:commandButton action="#{addCustomer.submitFormAddCustomer}" value="Add Customer" style="margin-left:210px;" />
+	</div>
+</h:form>
+</ui:define></ui:composition>
+</html>

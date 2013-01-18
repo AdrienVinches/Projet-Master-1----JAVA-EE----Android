@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="https://ajax4jsf.dev.java.net/ajax"
+	xmlns:c="http://java.sun.com/jstl/core"> 
+	<ui:composition template="/templates/default/defaultCustomer.xhtml">
+	<ui:define name="head">
+	<link rel="stylesheet" type="text/css"
+	href="http://localhost:8080/SupinBank-WEB/r/css/bootstrap.css" />
+<link rel="stylesheet" type="text/css"
+	href="http://localhost:8080/SupinBank-WEB/r/css/bootstrap-responsive.css" />
+<script type="text/javascript" src="http://localhost:8080/SupinBank-WEB/r/js/bootstrap.js" />
+	</ui:define>
+	<ui:define name="content">
+<a4j:keepAlive beanName="performTransfert"></a4j:keepAlive>
+<h:form>
+<div class="navbar navbar-fixed-top">
+	<div class="navbar-inner">
+		<div class="container">
+			<div class="nav-collapse">
+				<ul class="nav">
+					<li style="margin-right:7px;">
+					<h:commandLink value=" " action="#{auth.goToWelcomePageCustomer}" style="padding:0px!important;">
+					<h2 class="colorHeader">SupinBank</h2>
+					</h:commandLink>
+					</li>
+					<li style="background: black;" >
+					<h:commandLink action="performTransfert" value="Perform transfert" />
+					</li>
+					<li style="background: black;" >
+					<h:commandLink action="operation" value="My operation" />
+					</li>
+				</ul>
+				<ul class="nav" style="float:right;">
+				<li style="background: black;">
+					<h:commandLink action="#{auth.submitLogOut}" value="Log out : #{sessionUser.person.firstName} #{sessionUser.person.lastName}" />
+					</li>
+				</ul>
+			</div>
+		</div>		
+	</div>
+</div>
+</h:form>
+<a4j:form>
+<div class="container" style="margin-top: 45px;">
+		<h2>Perform a transfert </h2>
+		<hr />
+		<br />
+		<div class="addCustomerFormWidth">
+			<div class="floatL200px">
+				<p>Select your account </p>
+			</div>
+			<div class="floatR200px">
+				<h:selectOneMenu value="#{performTransfert.account}" converter="convertAccountTransfert" >
+					<f:selectItems
+						value="#{performTransfert.listSelectItemAccount}"></f:selectItems>
+					
+				</h:selectOneMenu>
+			</div>
+		</div>
+		
+		
+		<div  style="height: 80px;" class="">
+			<div class="floatL200px">
+				<p>Type of transfert </p>
+			</div>
+			<div class="selectRadio floatL200px" >
+				<h:selectOneRadio
+				value="#{performTransfert.internal}" required="false">
+				<f:selectItem itemValue="true" itemLabel="Transfert into internal account"></f:selectItem>
+				<f:selectItem itemValue="false" itemLabel="Transfert into an external account "></f:selectItem>
+				<a4j:support event="onchange" reRender="hselectMenuToHide, inputToHide"></a4j:support>
+			</h:selectOneRadio>
+			</div>
+		</div>
+		
+		<a4j:outputPanel id="hselectMenuToHide" layout="block">
+				<div class="addCustomerFormWidth" style="height: 50px;">
+					<div class="floatL200px">
+						<p>Select your account </p>
+					</div>
+					<div class="floatR200px">
+						<h:selectOneMenu value="#{performTransfert.internalAccount}" converter="convertAccountTransfert" disabled="#{!performTransfert.internal}" >
+							<f:selectItems
+								value="#{performTransfert.listSelectItemAccount}"></f:selectItems>
+							
+						</h:selectOneMenu>
+					</div>
+				</div>
+		</a4j:outputPanel>
+			<h:messages errorClass="errorMessage" styleClass="boxMessage" />
+		
+		<a4j:outputPanel id="inputToHide" layout="block">
+				<div class="">
+					<div class="floatL200px">
+						<p>Account target name </p>
+					</div>
+					<div class="">
+						<h:inputText value="#{performTransfert.establishmentCode}" disabled="#{performTransfert.internal}" style="margin-left:50px;width:50px;" styleClass="floatL" /><h:inputText value="#{performTransfert.branchCode}" disabled="#{performTransfert.internal}" style="margin-left:5px;width:50px;" styleClass="floatL" /><h:inputText value="#{performTransfert.accountNumber}" disabled="#{performTransfert.internal}"  style="margin-left:5px;" styleClass="floatL" /><h:inputText value="#{performTransfert.key}" disabled="#{performTransfert.internal}" style="margin-left:5px;width:50px;" styleClass="floatL" />
+					</div>
+				</div>
+		</a4j:outputPanel>
+		
+		
+		
+	</div>
+	
+	<div class="container" style="margin-top: 20px;">
+	<div class="addCustomerFormWidth">
+		<div class="floatL200px">
+			<p>Amount</p>
+		</div>
+		<div class="floatR200px">
+			<h:inputText value="#{performTransfert.price}" />
+		</div>
+	</div>
+	<div class="addCustomerFormWidth">
+		<div class="floatL200px">
+			<p>Description</p>
+		</div>
+		<div class="floatR200px">
+			<h:inputText value="#{performTransfert.description}" />
+		</div>
+	</div>
+	</div>
+	
+<div class="container" style="height: 50px;padding-top: 20px;background:#f6f7f8;border-top:1px solid #dedede;  ">
+	<h:commandButton action="#{performTransfert.performTransfert}" value="Perform transfert" style="margin-left:210px;" />
+</div>
+</a4j:form>
+		
+	</ui:define>
+</ui:composition>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="https://ajax4jsf.dev.java.net/ajax"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions">
+<head>
+</head>
+
+<body>
+<h2>Operations</h2>
+<a4j:form>
+<div>
+		<div>
+			<p>Select your account </p>
+		</div>
+		<div>
+			<h:selectOneMenu value="#{listOperation.account}" converter="convertAccount" >
+				<f:selectItems
+					value="#{listOperation.listSelectItemAccount}"></f:selectItems>
+				<a4j:support event="onchange" action="#{listOperation.fillAccount}"
+							reRender="operationDatatable" />
+			</h:selectOneMenu>
+		</div>
+	</div>
+	
+	<a4j:outputPanel id="operationDatatable">
+	
+	<rich:dataTable value="#{listOperation.modelOperation}" var="operation"
+	width="100%" rows="15">
+	<f:facet name="header">
+		<rich:columnGroup>
+			<rich:column>
+				<h:outputText value="Id" />
+			</rich:column>
+			<rich:column>
+				<h:outputText value="Date" />
+			</rich:column>
+			<rich:column>
+				<h:outputText value="Wording" />
+			</rich:column>
+			<rich:column>
+				<h:outputText value="Amount" />
+			</rich:column>
+		</rich:columnGroup>
+	</f:facet>
+
+	<rich:column>
+		<h:outputText value="#{operation.id}" />
+	</rich:column>
+	<rich:column>
+		<h:outputText value="#{operation.date}" ><f:convertDateTime pattern="dd/MM/yyyy" timeZone="Europe/Paris" /></h:outputText>
+	</rich:column>
+	<rich:column>
+		<h:outputText value="#{operation.libelle}" />
+	</rich:column>
+	<rich:column>
+		<h:outputText value="#{operation.price}" />
+	</rich:column>
+
+</rich:dataTable>
+	
+	</a4j:outputPanel>
+</a4j:form>
+
+</body>
+</html>

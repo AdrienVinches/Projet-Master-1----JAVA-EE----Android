@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello World, Login!</string>
+    <string name="app_name">Supinbank Mobile</string>
+      <string name="page_identification">Supinbank</string>
+        <string name="textIdentification">Authentication</string>
+          <string name="login">Login</string>
+    <string name="password">Password</string>
+    <string name="buttonLogin">Validate</string>
+     <string name="list_accounts">List Accounts</string>
+     <string name="account_name">Account</string>
+     <string name="account_balance">Balance</string>
+        
+        
+</resources>

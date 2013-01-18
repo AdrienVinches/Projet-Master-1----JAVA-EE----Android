@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="https://ajax4jsf.dev.java.net/ajax"
+	xmlns:c="http://java.sun.com/jstl/core"> 
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title></title>
+
+
+<ui:insert name="head"></ui:insert>
+</head>
+<body>
+<h:form>
+<div class="navbar navbar-fixed-top">
+	<div class="navbar-inner">
+		<div class="container">
+			<div class="nav-collapse">
+				<ul class="nav">
+					<li style="margin-right:7px;">
+					<h2 class="colorHeader">SupinBank</h2>
+					</li>
+					<li style="background: black;" >
+					<h:commandLink action="performTransfert" value="Perform transfert" />
+					</li>
+					<li style="background: black;" >
+					<h:commandLink action="operation" value="My operation" />
+					</li>
+				</ul>
+				<ul class="nav" style="float:right;">
+				<li style="background: black;">
+					<h:commandLink action="#{auth.submitLogOut}" value="Log out : #{sessionUser.person.firstName} #{sessionUser.person.lastName}" />
+					</li>
+				</ul>
+			</div>
+		</div>		
+	</div>
+</div>
+</h:form>
+<f:view>
+	<ui:insert name="content" />
+</f:view>
+</body>
+</html>
