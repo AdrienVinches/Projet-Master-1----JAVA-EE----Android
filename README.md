@@ -18,3 +18,6 @@ This website is composed of several functionalities listed below:
       - Between two of its accounts
       - To another account of the same bank 
       - To an account of another bank
+
+JAVA EE (JSF, EJB, Hibernate, jBoss, RichFaces)
+
